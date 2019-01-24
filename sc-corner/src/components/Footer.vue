@@ -5,7 +5,8 @@
                 <strong class="subheading">Најдете не на социјалните мрежи!</strong>
                 <v-spacer></v-spacer>
                 <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon>
-                    <v-icon size="24px">{{ icon }}</v-icon>
+                    <font-awesome-icon :icon="icon" />
+
                 </v-btn>
             </v-card-title>
 
@@ -19,7 +20,8 @@
     export default {
         data: () => ({
             icons: [
-                'fab fa-facebook',
+                'coffee',
+                'fa-facebook',
                 'fab fa-twitter',
                 'fab fa-google-plus',
                 'fab fa-linkedin',
