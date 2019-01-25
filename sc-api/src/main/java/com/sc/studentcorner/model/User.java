@@ -72,11 +72,12 @@ public class User implements UserDetails {
         this.faculty = faculty;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public User() {}
+    public User() {
+    }
 
     public User(String email) {
         this.email = email;
