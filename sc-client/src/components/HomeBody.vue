@@ -1,8 +1,16 @@
 <template>
-    <h1 style="height: 800px">Home</h1>
+    <div>
+        <h1>Home</h1>
+        <register/>
+    </div>
 </template>
 <script>
+import Register from './Register'
+
     export default {
+        components:{
+            Register
+        },
         data: () => ({})
     }
 </script>

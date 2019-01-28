@@ -21,9 +21,9 @@
         data: () => ({
             icons: [
                 'coffee',
-                'fa-facebook',
-                'fab fa-twitter',
-                'fab fa-google-plus',
+                'fa fa-android',
+                'business',
+                'coffee',
                 'fab fa-linkedin',
                 'fab fa-instagram'
             ]
