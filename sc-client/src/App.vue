@@ -2,23 +2,22 @@
   <v-app>
     <v-content>
       <Header/>
-      <Body/>
+      <router-view></router-view>
       <Footer/>
     </v-content>
+    
   </v-app>
 </template>
 
 <script>
-import Body from './components/HomeBody'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-export default {
+export default {  
   name: 'App',
   components: {
-    Footer,
     Header,
-    Body
+    Footer
   },
   data () {
     return {

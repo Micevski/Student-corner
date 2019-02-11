@@ -4,6 +4,27 @@ import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueRouter from 'vue-router'
+import Register from './components/Register'
+import Home from './components/Home'
+import Uslugi from './components/Uslugi'
+import Popusti from './components/Popusti'
+import Novosti from './components/Novosti'
+
+
+Vue.use(VueRouter);
+
+const routes = [
+  { path: '/register', component: Register },
+  { path: '/', component: Home },
+  { path: '/uslugi', component: Uslugi },
+  { path: '/popusti', component: Popusti },
+  { path: '/novosti', component: Novosti}
+];
+const router = new VueRouter({
+  routes
+})
+
 library.add(faCoffee)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -11,5 +32,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  router,
+  render: h => h(App)
+})
