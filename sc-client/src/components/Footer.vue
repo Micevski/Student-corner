@@ -4,10 +4,7 @@
             <v-card-title class="teal">
                 <strong class="subheading">Најдете не на социјалните мрежи!</strong>
                 <v-spacer></v-spacer>
-                <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon>
-                    <font-awesome-icon :icon="icon" />
 
-                </v-btn>
             </v-card-title>
 
             <v-card-actions class="grey darken-3 justify-center">
@@ -19,14 +16,7 @@
 <script>
     export default {
         data: () => ({
-            icons: [
-                'coffee',
-                'fa fa-android',
-                'business',
-                'coffee',
-                'fab fa-linkedin',
-                'fab fa-instagram'
-            ]
+
         })
     }
 </script>
