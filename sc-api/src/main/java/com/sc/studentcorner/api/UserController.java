@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping("/register")
     public User saveUser(@RequestBody UserRequest request){
-        return service.saveUser(request.email, request.password);
+        return service.saveUser(request.email, request.password, request.name, request.surname, request.faculty);
     }
 
     @GetMapping("/loggedUser")

@@ -5,6 +5,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueRouter from 'vue-router'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+
 import Register from './components/Register'
 import Home from './components/Home'
 import Uslugi from './components/Uslugi'
@@ -12,6 +16,7 @@ import Popusti from './components/Popusti'
 import Novosti from './components/Novosti'
 
 
+Vue.use(VueAxios, axios)
 Vue.use(VueRouter);
 
 const routes = [
@@ -36,3 +41,6 @@ new Vue({
   router,
   render: h => h(App)
 })
+
+
+
