@@ -27,7 +27,6 @@
             });
         },
         methods: {
-
             getLoggedUser: function () {
                 this.$http.get('/api/user/loggedUser')
                     .then((res) => {

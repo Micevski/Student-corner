@@ -1,5 +1,5 @@
 <template>
-    <v-footer dark height="auto">
+    <v-footer dark height="auto" class="footer">
         <v-card class="flex" flat tile>
             <v-card-title class="teal">
                 <strong class="subheading">Најдете не на социјалните мрежи!</strong>
@@ -22,5 +22,11 @@
 </script>
 
 <style>
+    .footer{
+        position:absolute;
+        bottom:0px;
+        left:0px;
+        right:0px;
 
+    }
 </style>

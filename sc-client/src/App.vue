@@ -33,9 +33,9 @@
 
 <style>
   .content{
-    min-height: 490px;
+    min-height: 400px;
     padding-top:20px;
-    padding-bottom: 20px;
+    padding-bottom:135px;
   }
 
   .loginRegisterToolbar{

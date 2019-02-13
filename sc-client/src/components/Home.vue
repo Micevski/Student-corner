@@ -1,12 +1,25 @@
 <template>
-  <div>
-    <v-carousel>
+  <div class="home">
+    <v-carousel><a href="#">
       <v-carousel-item
-              v-for="(item,i) in items"
+              v-for="(item,i) in articles"
               :key="i"
-              :src="item.src"
+              :src="item.thumbnail"
       ></v-carousel-item>
+    </a>
     </v-carousel>
+
+    <div id="articles" v-for="article in articles" class="card">
+      <v-card>
+        <v-img :src="article.thumbnail"></v-img>
+      </v-card>
+      <v-card-title class="v-card__title--primary">
+        <div>
+          <h3 class="headline mb-0">{{article.title}}</h3>
+        </div>
+      </v-card-title>
+    </div>
+
   </div>
 </template>
 
@@ -14,20 +27,17 @@
   export default {
     data () {
       return {
-        items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-          }
-        ]
+        articles:[]
+      }
+    },
+    created () {
+      this.getAllArticles();
+      console.log(articles)
+    },
+    methods: {
+      getAllArticles:function () {
+        this.$http.get("/api/public/article")
+                .then((res)=>this.articles = res.data)
       }
     }
   }
@@ -35,8 +45,9 @@
 
 <style scoped>
 .content{
-    min-height: 490px;
+
     padding-top:0px;
     padding-bottom: 20px;
+    margin-bottom: 150px;
   }
 </style>
