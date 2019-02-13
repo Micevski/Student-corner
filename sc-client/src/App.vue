@@ -52,6 +52,4 @@ export default {
     text-decoration: none;
     font-size: 13px;
   }
-
-
 </style>

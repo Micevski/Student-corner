@@ -89,7 +89,6 @@
         },
 
         data: () => ({
-            rootUrl: 'localhost:8090',
             name: '',
             lastName: '',
             email: '',
@@ -104,45 +103,45 @@
             checkbox: false,
         }),
 
-        computed: {
-            checkboxErrors() {
-                const errors = []
-                if (!this.$v.checkbox.$dirty) return errors
-                !this.$v.checkbox.checked && errors.push('You must agree to continue!')
-                return errors
-            },
-            selectErrors() {
-                const errors = []
-                if (!this.$v.select.$dirty) return errors
-                !this.$v.select.required && errors.push('Item is required')
-                return errors
-            },
-            nameErrors() {
-                const errors = []
-                if (!this.$v.name.$dirty) return errors
-                !this.$v.name.required && errors.push('Name is required.')
-                return errors
-            },
-            lastNameErrors() {
-                const errors = []
-                if (!this.$v.lastName.$dirty) return errors
-                !this.$v.lastName.required && errors.push('Last Name is required.')
-                return errors
-            },
-            passwordErrors() {
-                const errors = []
-                if (!this.$v.password.$dirty) return errors
-                !this.$v.password.required && errors.push('Password is required.')
-                return errors
-            },
-            emailErrors() {
-                const errors = []
-                if (!this.$v.email.$dirty) return errors
-                !this.$v.email.email && errors.push('Must be valid e-mail')
-                !this.$v.email.required && errors.push('E-mail is required')
-                return errors
-            }
-        },
+    computed: {
+      checkboxErrors () {
+        const errors = []
+        if (!this.$v.checkbox.$dirty) return errors
+        !this.$v.checkbox.checked && errors.push('Морате да се согласите со правилата за користење !')
+        return errors
+      },
+      selectErrors () {
+        const errors = []
+        if (!this.$v.select.$dirty) return errors
+        !this.$v.select.required && errors.push('Одберете факултет доколку сте студент, доколку не сте одберете „Иден Студент')
+        return errors
+      },
+      nameErrors () {
+        const errors = []
+        if (!this.$v.name.$dirty) return errors
+        !this.$v.name.required && errors.push('Името е задолжително.')
+        return errors
+      },
+      lastNameErrors () {
+        const errors = []
+        if (!this.$v.lastName.$dirty) return errors
+        !this.$v.lastName.required && errors.push('Презимето е задолжително.')
+        return errors
+      },
+      passwordErrors () {
+        const errors = []
+        if (!this.$v.password.$dirty) return errors
+        !this.$v.password.required && errors.push('Внесете лозинка !')
+        return errors
+      },
+      emailErrors () {
+        const errors = []
+        if (!this.$v.email.$dirty) return errors
+        !this.$v.email.email && errors.push('Мора да внесете валидна е-маил адреса.')
+        !this.$v.email.required && errors.push('Е-маил адресата е задолжителна.')
+        return errors
+      }
+    },
 
         methods: {
             submit() {

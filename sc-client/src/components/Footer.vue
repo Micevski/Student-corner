@@ -8,7 +8,7 @@
             </v-card-title>
 
             <v-card-actions class="grey darken-3 justify-center">
-                &copy;2018 — <strong>Студентски агол</strong>
+                &copy;201 — <strong>Студентски агол</strong>
             </v-card-actions>
         </v-card>
     </v-footer>
