@@ -17,6 +17,8 @@ import Novosti from './components/Novosti'
 import Login from './components/Login'
 import NewPost from './components/NewPost'
 
+export const EventBus = new Vue();
+
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter);
@@ -46,5 +48,6 @@ new Vue({
   render: h => h(App)
 })
 
+export const eventBus=new Vue();
 
 

@@ -28,7 +28,7 @@
                 <v-btn @click="submit">Најави се</v-btn>
             </div>
 
-            <h5 v-bind:class="{hasError: error, initial: vInitial}" >Погрешна емаил адреса или лозинка</h5>
+            <h5 :class="{hasError: error, initial: vInitial}" >Погрешна емаил адреса или лозинка</h5>
 
         </div>
     </form>
@@ -37,6 +37,7 @@
 <script>
     import {validationMixin} from 'vuelidate'
     import {email, required} from 'vuelidate/lib/validators'
+    import { EventBus } from '../main';
 
     export default {
         mixins: [validationMixin],
@@ -87,7 +88,9 @@
                     const status = JSON.parse(res.status);
                     if (status == 200){
                         this.$router.push('/')
+                        this.emitGlobalClickEvent()
                     }
+
                 }).catch((er) => {
                     console.log(er);
                     this.error = true;
@@ -98,7 +101,14 @@
             clear() {
                 this.$v.$reset()
                 this.email = ''
+            },
+            emitGlobalClickEvent() {
+                console.log("iam clicked")
+                // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+                EventBus.$emit('i-got-clicked', true);
             }
+
+
         }
     }
 </script>

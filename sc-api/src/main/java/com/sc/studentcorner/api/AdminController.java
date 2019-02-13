@@ -2,6 +2,7 @@ package com.sc.studentcorner.api;
 
 import com.sc.studentcorner.model.Admin;
 import com.sc.studentcorner.model.Article;
+import com.sc.studentcorner.model.request.ArticleRequest;
 import com.sc.studentcorner.model.request.UserRequest;
 import com.sc.studentcorner.service.AdminService;
 import com.sc.studentcorner.service.ArticleService;
@@ -31,7 +32,7 @@ public class AdminController {
     }
 
     @PostMapping("/article/save")
-    public Article saveArticle(@RequestBody Article article){
+    public Article saveArticle(@RequestBody ArticleRequest article){
         return articleService.saveArticle(article);
     }
 

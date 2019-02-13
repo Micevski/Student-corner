@@ -3,13 +3,14 @@ package com.sc.studentcorner.service;
 import com.sc.studentcorner.model.Article;
 import com.sc.studentcorner.model.ArticleCategory;
 import com.sc.studentcorner.model.exception.ArticleNotFoundException;
+import com.sc.studentcorner.model.request.ArticleRequest;
 import com.sc.studentcorner.repository.ArticleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -25,15 +26,17 @@ public class ArticleService {
     }
 
     @Transactional
-    public Article saveArticle(Article article) {
-        logger.info("Saving article [{}]", article.getTitle());
+    public Article saveArticle(ArticleRequest request) {
+        logger.info("Saving request [{}]", request.title);
+        LocalDateTime lcd = LocalDateTime.now();
+        Article article = new Article(request.title, request.content, request.thumbnail, lcd);
         return repository.save(article);
     }
 
-    public List<Article> getAllArticles(){
+    public List<Article> getAllArticles() {
         logger.info("Retrieving all articles from db");
-        return repository.findAllOrOrderByDateCreated();
-                    }
+        return repository.findAll();
+    }
 
     public List<Article> getArticlesFromCategory(ArticleCategory category) {
         logger.info("Retrieving all articles from db");

@@ -15,6 +15,7 @@
   import Footer from "./components/Footer";
   import LoginNavBar from "./components/LoginNavBar"
 
+
   export default {
     name: 'App',
     components: {
