@@ -14,6 +14,7 @@ import Home from './components/Home'
 import Uslugi from './components/Uslugi'
 import Popusti from './components/Popusti'
 import Novosti from './components/Novosti'
+import Login from './components/Login'
 
 
 Vue.use(VueAxios, axios)
@@ -24,7 +25,8 @@ const routes = [
   { path: '/', component: Home },
   { path: '/uslugi', component: Uslugi },
   { path: '/popusti', component: Popusti },
-  { path: '/novosti', component: Novosti}
+  { path: '/novosti', component: Novosti},
+  { path: '/login', component: Login}
 ];
 const router = new VueRouter({
   routes
