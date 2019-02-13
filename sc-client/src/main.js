@@ -15,6 +15,7 @@ import Uslugi from './components/Uslugi'
 import Popusti from './components/Popusti'
 import Novosti from './components/Novosti'
 import Login from './components/Login'
+import NewPost from './components/NewPost'
 
 
 Vue.use(VueAxios, axios)
@@ -26,7 +27,8 @@ const routes = [
   { path: '/uslugi', component: Uslugi },
   { path: '/popusti', component: Popusti },
   { path: '/novosti', component: Novosti},
-  { path: '/login', component: Login}
+  { path: '/login', component: Login},
+  { path: '/newpost', component: NewPost}
 ];
 const router = new VueRouter({
   routes
