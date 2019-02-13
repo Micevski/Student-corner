@@ -81,7 +81,7 @@
                 let form = new FormData();
                 form.append("email", this.email);
                 form.append("password", this.password);
-                this.$http.post('/api/login', form,
+                this.$http.post('/api/admin/login', form,
                     {
                         headers: {'Content-Type': 'multipart/form-data'}
                     }).then((res) => {

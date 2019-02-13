@@ -84,12 +84,14 @@
 
         methods: {
             submit() {
+
                 this.$v.$touch()
                 let article = {
-                    'postTitle': this.postTitle,
-                    'postContent': this.postContent,
-                    'postThumbnail': this.postThumbnail
+                    'title': this.postTitle,
+                    'content': this.postContent,
+                    'thumbnail': this.postThumbnail
                 }
+                console.log(article)
                 this.$http.post("/api/admin/article/save", article)
                     .then(res => {
                         /* eslint-disable no-console */
