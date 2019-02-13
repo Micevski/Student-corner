@@ -57,6 +57,7 @@
                     .then((res) => {
                         let status = JSON.parse(res.status);
                         if (status == 200) {
+                            this.user = res.data;
                             this.isAdminLogged=true;
                             this.logedUser = true;
                         }

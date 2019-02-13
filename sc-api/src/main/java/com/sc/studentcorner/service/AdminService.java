@@ -28,13 +28,13 @@ public class AdminService implements UserDetailsService {
     }
 
     @Transactional
-    public Admin saveAdmin(String email, String password) {
+    public Admin saveAdmin(String email, String password, String name, String surname, String faculty) {
         boolean adminExist = repository.existsByEmail(email);
         if (adminExist) {
             logger.warn("User [{}] already exists", email);
             throw new EntityExistsException(email);
         } else {
-            Admin newAdmin = new Admin(email);
+            Admin newAdmin = new Admin(email, name, surname, faculty);
             newAdmin.setPassword(passwordEncoder.encode(password));
             return repository.save(newAdmin);
         }

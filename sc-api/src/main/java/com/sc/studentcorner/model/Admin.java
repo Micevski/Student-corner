@@ -78,6 +78,13 @@ public class Admin implements UserDetails {
     public Admin() {
     }
 
+    public Admin(String email, String name, String surname, String faculty){
+        this.email = email;
+        this.firstName = name;
+        this.lastName = surname;
+        this.faculty = faculty;
+    }
+
     public Admin(String email) {
         this.email = email;
     }

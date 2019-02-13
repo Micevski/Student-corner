@@ -23,7 +23,7 @@ public class AdminController {
 
     @PostMapping("/register")
     public Admin saveAdmin(@RequestBody UserRequest request) {
-        return service.saveAdmin(request.email, request.password);
+        return service.saveAdmin(request.email, request.password, request.name, request.surname, request.faculty);
     }
 
     @GetMapping("/loggedAdmin")

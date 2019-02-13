@@ -15,12 +15,12 @@
                 ></v-text-field>
 
                 <v-text-field
-                        v-model="lastName"
+                        v-model="surname"
                         :error-messages="lastNameErrors"
                         label="Презиме"
                         required
-                        @input="$v.lastName.$touch()"
-                        @blur="$v.lastName.$touch()"
+                        @input="$v.surname.$touch()"
+                        @blur="$v.surname.$touch()"
                 ></v-text-field>
 
                 <v-text-field
@@ -81,7 +81,7 @@
         validations: {
             name: {required},
             password: {required},
-            lastName: {required},
+            surname: {required},
             email: {required, email},
             select: {required},
             checkbox: {
@@ -93,9 +93,10 @@
 
         data: () => ({
             name: '',
-            lastName: '',
+            surname: '',
             email: '',
             password: '',
+            faculty: '',
             select: null,
             items: [
                 'Иден студент',
@@ -147,8 +148,8 @@
             },
             lastNameErrors() {
                 const errors = []
-                if (!this.$v.lastName.$dirty) return errors
-                !this.$v.lastName.required && errors.push('Презимето е задолжително.')
+                if (!this.$v.surname.$dirty) return errors
+                !this.$v.surname.required && errors.push('Презимето е задолжително.')
                 return errors
             },
             passwordErrors() {
@@ -174,7 +175,7 @@
                     'email': this.email,
                     'password': this.password,
                     'name': this.name,
-                    'surname': this.lastName,
+                    'surname': this.surname,
                     'faculty': this.faculty
                 }
                 this.$http.post("/api/admin/register", user)
