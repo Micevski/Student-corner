@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-    public List<Article> findAllByCategory(ArticleCategory category);
+     List<Article> findAllByCategory(ArticleCategory category);
+     List<Article> findAllOrOrderByDateCreated();
 }

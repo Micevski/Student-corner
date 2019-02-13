@@ -18,9 +18,10 @@ public class ArticleController {
         this.service = service;
     }
 
-    @PostMapping
-    public Article saveArticle(@RequestBody Article article){
-        return service.saveArticle(article);
+
+    @GetMapping
+    public List<Article> getAllArticles(){
+        return service.getAllArticles();
     }
 
     @GetMapping("/{id}")

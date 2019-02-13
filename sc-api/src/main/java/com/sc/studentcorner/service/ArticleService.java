@@ -6,6 +6,7 @@ import com.sc.studentcorner.model.exception.ArticleNotFoundException;
 import com.sc.studentcorner.repository.ArticleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +29,11 @@ public class ArticleService {
         logger.info("Saving article [{}]", article.getTitle());
         return repository.save(article);
     }
+
+    public List<Article> getAllArticles(){
+        logger.info("Retrieving all articles from db");
+        return repository.findAllOrOrderByDateCreated();
+                    }
 
     public List<Article> getArticlesFromCategory(ArticleCategory category) {
         logger.info("Retrieving all articles from db");

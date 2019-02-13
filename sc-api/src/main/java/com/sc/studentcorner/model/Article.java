@@ -33,7 +33,7 @@ public class Article {
         this.category = category;
         this.articleText = articleText;
         this.thumbnail = thumbnail;
-        this.dateCreated = dateCreated;
+        this.dateCreated = LocalDateTime.now();
     }
 
     public Long getId() {
