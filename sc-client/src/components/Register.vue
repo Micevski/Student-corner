@@ -159,7 +159,9 @@
                         /* eslint-disable no-console */
                         console.log(res);
                         /* eslint-enable no-console */
-                    })
+                    }).catch(e => {
+                        //so da se desava na ne uspesen register
+                })
             },
             clear() {
                 this.$v.$reset()
