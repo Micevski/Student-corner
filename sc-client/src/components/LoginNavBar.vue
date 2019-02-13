@@ -5,6 +5,7 @@
             <v-btn flat class="loginMenuItem"><a href="/#/login">Најава</a></v-btn>
         </div>
         <div v-if="logedUser" class='loginRegisterToolbar'>
+            <v-btn v-if="isAdminLogged" flat class="loginMenuItem"><a href="/#/newpost">Креирај Артикал</a></v-btn>
             <v-btn flat class="loginMenuItem"><a href="/#/register">{{user.firstName}}</a></v-btn>
             <v-btn flat class="loginMenuItem"><a v-on:click="logOut">Одјава</a></v-btn>
         </div>
@@ -18,10 +19,12 @@
         data: () => ({
             works: "Header",
             user: '',
-            logedUser:false
+            logedUser:false,
+            isAdminLogged:false
         }),
         created() {
             this.getLoggedUser();
+            this.isAdmin();
             EventBus.$on('i-got-clicked', clickCount => {
                 this.logedUser=true;
             });
@@ -43,10 +46,23 @@
             logOut: function () {
                 this.$http.get('/api/logout')
                     .then(() => {
-                        this.$router.push('/');
                         this.logedUser=false;
+                        this.$router.push('/');
 
                     }).catch((e) => console.log("Error occurred", e))
+            },
+
+            isAdmin: function () {
+                this.$http.get('/api/admin/loggedAdmin')
+                    .then((res) => {
+                        let status = JSON.parse(res.status);
+                        if (status == 200) {
+                            this.isAdminLogged=true;
+                            this.logedUser = true;
+                        }
+                    }).catch(() => {
+                    this.isAdminLogged=false;
+                });
             }
         }
     }

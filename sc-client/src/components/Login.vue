@@ -28,6 +28,8 @@
                 <v-btn @click="submit">Најави се</v-btn>
             </div>
 
+                <a class="login" v-on:click="loginAsAdmin()">Админ си?</a>
+
             <h5 :class="{hasError: error, initial: vInitial}" >Погрешна емаил адреса или лозинка</h5>
 
         </div>
@@ -81,7 +83,7 @@
                 let form = new FormData();
                 form.append("email", this.email);
                 form.append("password", this.password);
-                this.$http.post('/api/admin/login', form,
+                this.$http.post('/api/login', form,
                     {
                         headers: {'Content-Type': 'multipart/form-data'}
                     }).then((res) => {
@@ -106,6 +108,30 @@
                 console.log("iam clicked")
                 // Send the event on a channel (i-got-clicked) with a payload (the click count.)
                 EventBus.$emit('i-got-clicked', true);
+            },
+            loginAsAdmin() {
+                this.error = false;
+                this.vInitial = true;
+                this.$v.$touch()
+                let form = new FormData();
+                form.append("email", this.email);
+                form.append("password", this.password);
+                this.$http.post('/api/admin/login', form,
+                    {
+                        headers: {'Content-Type': 'multipart/form-data'}
+                    }).then((res) => {
+                    const status = JSON.parse(res.status);
+                    if (status == 200){
+                        this.$router.push('/')
+                        this.emitGlobalClickEvent()
+                    }
+
+                }).catch((er) => {
+                    console.log(er);
+                    this.error = true;
+                    this.vInitial = false;
+                });
+
             }
 
 
