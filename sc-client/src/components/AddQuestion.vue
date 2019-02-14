@@ -72,9 +72,9 @@
                 let question = {
                     'title': this.questionTitle,
                     'question': this.questionContent,
-                    'userName': this.user.firstName
                 }
                 this.$http.post("/api/user/question", question)
+                    //console.log(this.user.firstName)
                     .then(res => {
                         this.$router.push("/question/"+res.data.id)
                     }).catch(e => {

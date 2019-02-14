@@ -1,7 +1,6 @@
 <template>
     <form>
         <div class='loginForm'>
-
             <h1 style="text-align:center">НАЈАВА</h1>
 
             <v-text-field
