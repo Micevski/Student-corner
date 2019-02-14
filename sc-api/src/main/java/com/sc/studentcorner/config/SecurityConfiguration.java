@@ -140,7 +140,7 @@ public class SecurityConfiguration {
 
 
             http.authorizeRequests()
-                    .antMatchers("/api/user/loggedUser", "/api/reserve")
+                    .antMatchers("/api/user/loggedUser", "/api/user/question")
                     .hasAuthority("USER")
                     .antMatchers("api/user/register")
                     .permitAll();

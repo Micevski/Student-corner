@@ -28,8 +28,9 @@ public class ArticleService {
     @Transactional
     public Article saveArticle(ArticleRequest request) {
         logger.info("Saving request [{}]", request.title);
+        ArticleCategory category = ArticleCategory.valueOf(request.articleCategory);
         LocalDateTime lcd = LocalDateTime.now();
-        Article article = new Article(request.title, request.content, request.thumbnail, lcd);
+        Article article = new Article(request.title, category, request.content, request.thumbnail, lcd);
         return repository.save(article);
     }
 
@@ -38,9 +39,10 @@ public class ArticleService {
         return repository.findAll();
     }
 
-    public List<Article> getArticlesFromCategory(ArticleCategory category) {
+    public List<Article> getArticlesFromCategory(String category) {
         logger.info("Retrieving all articles from db");
-        return repository.findAllByCategory(category);
+        ArticleCategory articleCategory = ArticleCategory.valueOf(category);
+        return repository.findAllByCategory(articleCategory);
     }
 
     public Article getArticleById(Long id) throws ArticleNotFoundException {
