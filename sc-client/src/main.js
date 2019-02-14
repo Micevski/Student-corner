@@ -16,6 +16,7 @@ import Popusti from './components/Popusti'
 import Novosti from './components/Novosti'
 import Login from './components/Login'
 import NewPost from './components/NewPost'
+import Article from './components/Article'
 
 export const EventBus = new Vue();
 
@@ -30,7 +31,8 @@ const routes = [
   { path: '/popusti', component: Popusti },
   { path: '/novosti', component: Novosti},
   { path: '/login', component: Login},
-  { path: '/newpost', component: NewPost}
+  { path: '/newpost', component: NewPost},
+  { path: '/article/:id', component: Article}
 ];
 const router = new VueRouter({
   routes

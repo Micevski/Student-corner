@@ -12,6 +12,25 @@
                     @blur="$v.postTitle.$touch()"
             ></v-text-field>
 
+            <v-select
+                    v-model="select"
+                    :items="items"
+                    :error-messages="selectErrors"
+                    label="Одберете категорија"
+                    required
+                    @change="$v.select.$touch()"
+                    @blur="$v.select.$touch()"
+            ></v-select>
+
+            <v-text-field
+                    v-model="postThumbnail"
+                    :error-messages="postThumbnailErrors"
+                    label="Линк од слика"
+                    required
+                    @input="$v.postThumbnail.$touch()"
+                    @blur="$v.postThumbnail.$touch()"
+            ></v-text-field>
+
             <v-textarea
                     v-model="postContent"
                     :error-messages="postContentErrors"
@@ -24,15 +43,6 @@
                     value=""
                     style="padding-top:10px;"
             ></v-textarea>
-
-            <v-text-field
-                    v-model="postThumbnail"
-                    :error-messages="postThumbnailErrors"
-                    label="Линк од слика"
-                    required
-                    @input="$v.postThumbnail.$touch()"
-                    @blur="$v.postThumbnail.$touch()"
-            ></v-text-field>
 
             <div class="publish">
                 <v-btn @click="submit">Објави</v-btn>
@@ -51,13 +61,25 @@
         validations: {
             postTitle: { required, email },
             postContent: { required },
-            postThumbnail: { required }
+            postThumbnail: { required },
+            select: { required },
+            checkbox: {
+                checked(val) {
+                    return val
+                }
+            }
         },
 
         data: () => ({
             postTitle: "",
             postContent: "",
-            postThumbnail: ""
+            postThumbnail: "",
+            select: null,
+            items: [
+                'Новости',
+                'Услуги',
+                'Попусти'
+            ]
         }),
 
         computed: {
@@ -79,6 +101,12 @@
                 //!this.$v.postThumbnail.link && errors.push('Мора да внесете валидна URL адреса.')
                 !this.$v.postThumbnail.required && errors.push('Сликата на објавата е задолжителна.')
                 return errors
+            },
+            selectErrors() {
+                const errors = []
+                if (!this.$v.select.$dirty) return errors
+                !this.$v.select.required && errors.push('Категоријата е задолжителна.')
+                return errors
             }
         },
 
@@ -86,12 +114,19 @@
             submit() {
 
                 this.$v.$touch()
+                if(this.select ==='Новости')
+                    this.select='NEWS'
+                if(this.select === 'Услуги')
+                    this.select = 'SERVICES'
+                if(this.select === 'Попусти')
+                    this.select = 'OFFERS'
                 let article = {
                     'title': this.postTitle,
                     'content': this.postContent,
-                    'thumbnail': this.postThumbnail
+                    'thumbnail': this.postThumbnail,
+                    'category': this.select
                 }
-                console.log(article)
+                console.log(this.select)
                 this.$http.post("/api/admin/article/save", article)
                     .then(res => {
                         /* eslint-disable no-console */
