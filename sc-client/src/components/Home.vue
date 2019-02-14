@@ -33,7 +33,6 @@
     },
     created () {
       this.getAllArticles();
-      console.log(articles)
     },
     methods: {
       getAllArticles:function () {

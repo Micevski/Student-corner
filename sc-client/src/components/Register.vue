@@ -178,7 +178,7 @@
                     'surname': this.surname,
                     'faculty': this.faculty
                 }
-                this.$http.post("/api/admin/register", user)
+                this.$http.post("/api/user/register", user)
                     .then(res => {
                         /* eslint-disable no-console */
                         console.log(res);

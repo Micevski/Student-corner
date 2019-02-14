@@ -112,7 +112,6 @@
 
         methods: {
             submit() {
-
                 this.$v.$touch()
                 if(this.select ==='Новости')
                     this.select='NEWS'
@@ -126,14 +125,11 @@
                     'thumbnail': this.postThumbnail,
                     'category': this.select
                 }
-                console.log(this.select)
                 this.$http.post("/api/admin/article/save", article)
                     .then(res => {
-                        /* eslint-disable no-console */
-                        console.log(res);
-                        /* eslint-enable no-console */
+                        this.$router.push("/article/"+res.data.id)
                     }).catch(e => {
-                    //so da se desava na ne uspesen register
+                    alert("Something went wrong");
                 })
             }
         }
