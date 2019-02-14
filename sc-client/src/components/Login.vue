@@ -28,7 +28,9 @@
                 <v-btn @click="submit">Најави се</v-btn>
             </div>
 
-                <a class="login" v-on:click="loginAsAdmin()">Админ си?</a>
+            <div class="login">
+                <v-btn @click="loginAsAdmin">Најави се како админ</v-btn>
+            </div>
 
             <h5 :class="{hasError: error, initial: vInitial}" >Погрешна емаил адреса или лозинка</h5>
 

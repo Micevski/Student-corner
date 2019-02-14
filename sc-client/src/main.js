@@ -17,6 +17,9 @@ import Novosti from './components/Novosti'
 import Login from './components/Login'
 import NewPost from './components/NewPost'
 import Article from './components/Article'
+import Questions from './components/Questions'
+import AddQuestion from './components/AddQuestion'
+import QuestionOpened from './components/QuestionOpened'
 
 export const EventBus = new Vue();
 
@@ -32,7 +35,10 @@ const routes = [
   { path: '/novosti', component: Novosti},
   { path: '/login', component: Login},
   { path: '/newpost', component: NewPost},
-  { path: '/article/:id', component: Article}
+  { path: '/article/:id', component: Article},
+  { path: '/questions', component: Questions},
+  { path: '/add/question', component: AddQuestion},
+  { path: '/question/:id', component: QuestionOpened}
 ];
 const router = new VueRouter({
   routes

@@ -1,4 +1,5 @@
 <template>
+    <div>
     <div id="questions" v-for="question in questions">
         <a :href="'/#/question/'+question.id">
             <v-card-title class="v-card__title--primary">
@@ -10,6 +11,7 @@
                 <p>{{question.question.substring(0,30)}}</p>
             </div>
         </a>
+    </div>
     </div>
 </template>
 
