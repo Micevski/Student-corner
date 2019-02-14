@@ -178,13 +178,11 @@
                     'surname': this.surname,
                     'faculty': this.faculty
                 }
-                this.$http.post("/api/admin/register", user)
+                this.$http.post("/api/user/register", user)
                     .then(res => {
-                        /* eslint-disable no-console */
-                        console.log(res);
-                        /* eslint-enable no-console */
+                        this.$router.push('/')
                     }).catch(e => {
-                    //TODO NOT IMPLEMENTED ERR
+                    alert('Something went wrong')
                 })
             },
             clear() {
