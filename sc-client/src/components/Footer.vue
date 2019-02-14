@@ -2,7 +2,7 @@
     <v-footer dark height="auto" class="footer">
         <v-card class="flex" flat tile>
             <v-card-title class="teal">
-                <strong class="subheading">Најдете не на социјалните мрежи!</strong>
+                <strong class="subheading">Студентски агол - Вашето омилено катче</strong>
                 <v-spacer></v-spacer>
 
             </v-card-title>
