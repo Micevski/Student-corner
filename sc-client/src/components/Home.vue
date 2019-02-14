@@ -1,23 +1,24 @@
 <template>
   <div class="home">
-    <v-carousel><a href="#">
+    <v-carousel><router-link v-for="(item,i) in articles" :to="'/article/'+item.id">
       <v-carousel-item
-              v-for="(item,i) in articles"
               :key="i"
               :src="item.thumbnail"
       ></v-carousel-item>
-    </a>
+    </router-link>
     </v-carousel>
 
     <div id="articles" v-for="article in articles" class="card">
-      <v-card>
-        <v-img :src="article.thumbnail"></v-img>
-      </v-card>
-      <v-card-title class="v-card__title--primary">
-        <div>
-          <h3 class="headline mb-0">{{article.title}}</h3>
-        </div>
-      </v-card-title>
+      <a :href="'/#/article/'+article.id">
+        <v-card>
+          <v-img :src="article.thumbnail"></v-img>
+        </v-card>
+        <v-card-title class="v-card__title--primary">
+          <div>
+            <h3 class="headline mb-0">{{article.title}}</h3>
+          </div>
+        </v-card-title>
+      </a>
     </div>
 
   </div>
