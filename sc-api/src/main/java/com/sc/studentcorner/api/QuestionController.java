@@ -28,6 +28,11 @@ public class QuestionController {
         return service.saveQuestion(question);
     }
 
+    @GetMapping("/{id}")
+    public Question getQuestionById(@PathVariable Long id) throws QuestionNotFoundExceitpion {
+        return service.getQuestionById(id);
+    }
+
     @PostMapping("/answer/save/{questionId}")
     private Answer saveAnswer(@RequestBody Answer answer,
                               @PathVariable Long questionId) throws QuestionNotFoundExceitpion {
