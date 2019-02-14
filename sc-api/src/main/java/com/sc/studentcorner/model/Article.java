@@ -28,9 +28,9 @@ public class Article {
     public Article() {
     }
 
-    public Article(String title,  String articleText, String thumbnail, LocalDateTime dateCreated) {
+    public Article(String title, ArticleCategory category,  String articleText, String thumbnail, LocalDateTime dateCreated) {
         this.title = title;
-        //this.category = category;
+        this.category = category;
         this.articleText = articleText;
         this.thumbnail = thumbnail;
         this.dateCreated = dateCreated;

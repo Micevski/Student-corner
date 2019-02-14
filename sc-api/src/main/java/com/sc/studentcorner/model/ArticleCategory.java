@@ -4,6 +4,6 @@ public enum ArticleCategory {
 
     NEWS,
     OFFERS,
-    PRIVILEGES
+    SERVICES
 
 }

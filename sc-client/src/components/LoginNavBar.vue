@@ -22,6 +22,12 @@
             logedUser:false,
             isAdminLogged:false
         }),
+        watch: {
+            '$route' (to, from) {
+                this.getLoggedUser();
+            }
+        },
+
         created() {
             this.getLoggedUser();
             this.isAdmin();

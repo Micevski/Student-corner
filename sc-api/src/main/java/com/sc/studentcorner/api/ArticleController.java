@@ -31,7 +31,7 @@ public class ArticleController {
 
 
     @GetMapping("/all/{category}")
-    public List<Article> getAllArticlesFromCategory(@PathVariable ArticleCategory category) {
+    public List<Article> getAllArticlesFromCategory(@PathVariable String category) {
         return service.getArticlesFromCategory(category);
     }
 

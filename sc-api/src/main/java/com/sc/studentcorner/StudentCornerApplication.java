@@ -1,5 +1,9 @@
 package com.sc.studentcorner;
 
+import com.sc.studentcorner.model.Article;
+import com.sc.studentcorner.model.ArticleCategory;
+import com.sc.studentcorner.repository.ArticleRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -9,6 +13,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 
 @SpringBootApplication
@@ -34,5 +39,15 @@ public class StudentCornerApplication {
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
     }
+
+
+   /* @Bean
+    public CommandLineRunner loadData(ArticleRepository repository) {
+        return (args) -> {
+            // save a couple of customers
+            repository.save(new Article("Title", ArticleCategory.NEWS, "Bla bla bla bla bla bla bla", "thumbnail", LocalDateTime.now()));
+
+        };
+    }*/
 }
 
