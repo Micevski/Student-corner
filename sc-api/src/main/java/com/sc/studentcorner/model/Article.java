@@ -16,6 +16,7 @@ public class Article {
     @Enumerated(EnumType.STRING)
     private ArticleCategory category;
 
+    @Lob
     @Column(name = "article_text")
     private String articleText;
 

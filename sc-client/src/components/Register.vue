@@ -81,7 +81,7 @@
         validations: {
             name: {required},
             password: {required},
-            surname: {required},
+            lastName: {required},
             email: {required, email},
             select: {required},
             checkbox: {
@@ -93,7 +93,7 @@
 
         data: () => ({
             name: '',
-            surname: '',
+            lastName: '',
             email: '',
             password: '',
             faculty: '',
@@ -148,8 +148,8 @@
             },
             lastNameErrors() {
                 const errors = []
-                if (!this.$v.surname.$dirty) return errors
-                !this.$v.surname.required && errors.push('Презимето е задолжително.')
+                if (!this.$v.lastName.$dirty) return errors
+                !this.$v.lastName.required && errors.push('Презимето е задолжително.')
                 return errors
             },
             passwordErrors() {
@@ -175,7 +175,7 @@
                     'email': this.email,
                     'password': this.password,
                     'name': this.name,
-                    'surname': this.surname,
+                    'surname': this.lastName,
                     'faculty': this.faculty
                 }
                 this.$http.post("/api/admin/register", user)

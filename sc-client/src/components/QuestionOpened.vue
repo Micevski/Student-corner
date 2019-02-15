@@ -4,7 +4,7 @@
         <p>{{question.question}}</p>
 
         <div class="comment">
-            <div style="border: 1px solid black" class="comments" v-for="comment in answers">
+            <div style="border: 1px solid lightgray" class="comments" v-for="comment in answers">
                 <h5>{{comment.userName}}</h5>
                 <p>{{comment.contet}}</p>
             </div>
@@ -79,5 +79,11 @@
         width:700px;
         margin:auto;
         margin-top:5px;
+    }
+
+    .comments{
+        box-shadow: 1px 2px lightgrey;
+        border-radius: 10px;
+        margin-bottom:10px;
     }
 </style>

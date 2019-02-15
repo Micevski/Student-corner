@@ -1,14 +1,15 @@
 <template>
     <div>
         <div v-if="!logedUser" class='loginRegisterToolbar'>
-            <v-btn flat class="loginMenuItem"><a href="/#/register">Регистрација</a></v-btn>
-            <v-btn flat class="loginMenuItem"><a href="/#/login">Најава</a></v-btn>
+            <v-btn flat class="loginMenuItem lr" v-on:click="register">Регистрација</v-btn>
+            <v-btn flat class="loginMenuItem lr" v-on:click="login">Најава</v-btn>
         </div>
         <div v-if="logedUser" class='loginRegisterToolbar'>
+            <v-btn v-if="isAdminLogged" flat class="loginMenuItem"><a href="/#/newpost">Креирај Артикал</a></v-btn>
+            <v-btn flat class="loginMenuItem"><a href="/#/questions">Поставени прашања</a></v-btn>
             <v-btn flat class="loginMenuItem"><a href="/#/add/question">Постави прашање</a></v-btn>
             <v-btn flat class="loginMenuItem"><a href="/#/register">{{user.firstName}}</a></v-btn>
             <v-btn flat class="loginMenuItem"><a v-on:click="logOut">Одјава</a></v-btn>
-            <v-btn v-if="isAdminLogged" flat class="loginMenuItem"><a href="/#/newpost">Креирај Артикал</a></v-btn>
         </div>
     </div>
 </template>
@@ -23,12 +24,6 @@
             logedUser:false,
             isAdminLogged:false
         }),
-        watch: {
-            '$route' (to, from) {
-                this.getLoggedUser();
-            }
-        },
-
         created() {
             this.getLoggedUser();
             this.isAdmin();
@@ -37,6 +32,12 @@
             });
         },
         methods: {
+            register:function(){
+                this.$router.push("/register/")
+            },
+            login:function(){
+                this.$router.push("/login/")
+            },
             getLoggedUser: function () {
                 this.$http.get('/api/user/loggedUser')
                     .then((res) => {
@@ -88,9 +89,11 @@
         height: 27px;
     }
 
-    .loginMenuItem a {
-        color: white;
+    .loginMenuItem  {
+        color: white !important;
         text-decoration: none;
         font-size: 13px;
     }
+
+
 </style>

@@ -18,6 +18,7 @@
             <h3 class="headline mb-0">{{article.title}}</h3>
           </div>
         </v-card-title>
+        <p>{{article.articleText.substring(1,50)}} ...</p>
       </a>
     </div>
 
@@ -50,4 +51,16 @@
     padding-bottom: 20px;
     margin-bottom: 150px;
   }
+
+  #articles{
+    width:330px;
+    display:inline-block;
+    margin: 40px;
+  }
+
+  #articles a{
+    text-decoration: none;
+    color: black;
+  }
+
 </style>
