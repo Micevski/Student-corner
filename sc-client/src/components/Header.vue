@@ -5,9 +5,9 @@
         <v-spacer></v-spacer>
         <v-toolbar-items centered class="hidden-sm-and-down">
             <v-btn active flat><a href="/">Почетна</a></v-btn>
-            <v-btn flat><a href="/#/uslugi">Услуги</a></v-btn>
-            <v-btn flat><a href="/#/popusti">Попусти</a></v-btn>
-            <v-btn flat><a href="/#/novosti">Новости</a></v-btn>
+            <v-btn v-on:click="services()" flat>Услуги</v-btn>
+            <v-btn v-on:click="offers()" flat>Попусти</v-btn>
+            <v-btn v-on:click="news()" flat>Новости</v-btn>
         </v-toolbar-items>
         
     </v-toolbar>
@@ -19,7 +19,21 @@
     export default {
         data: () => ({
             works: "Header"
-        })
+        }),
+
+        methods: {
+            services: function () {
+                this.$router.push('/uslugi')
+            },
+
+            offers: function () {
+                this.$router.push('/popusti')
+            },
+
+            news: function () {
+                this.$router.push('/novosti')
+            }
+        }
     }
 </script>
 

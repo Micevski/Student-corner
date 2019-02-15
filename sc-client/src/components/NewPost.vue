@@ -123,8 +123,9 @@
                     'title': this.postTitle,
                     'content': this.postContent,
                     'thumbnail': this.postThumbnail,
-                    'category': this.select
+                    'articleCategory': this.select
                 }
+                console.log(this.select);
                 this.$http.post("/api/admin/article/save", article)
                     .then(res => {
                         this.$router.push("/article/"+res.data.id)

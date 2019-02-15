@@ -5,10 +5,10 @@
             <v-btn flat class="loginMenuItem"><a href="/#/login">Најава</a></v-btn>
         </div>
         <div v-if="logedUser" class='loginRegisterToolbar'>
-            <v-btn v-if="isAdminLogged" flat class="loginMenuItem"><a href="/#/newpost">Креирај Артикал</a></v-btn>
             <v-btn flat class="loginMenuItem"><a href="/#/add/question">Постави прашање</a></v-btn>
             <v-btn flat class="loginMenuItem"><a href="/#/register">{{user.firstName}}</a></v-btn>
             <v-btn flat class="loginMenuItem"><a v-on:click="logOut">Одјава</a></v-btn>
+            <v-btn v-if="isAdminLogged" flat class="loginMenuItem"><a href="/#/newpost">Креирај Артикал</a></v-btn>
         </div>
     </div>
 </template>

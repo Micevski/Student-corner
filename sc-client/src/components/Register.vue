@@ -178,7 +178,7 @@
                     'surname': this.surname,
                     'faculty': this.faculty
                 }
-                this.$http.post("/api/user/register", user)
+                this.$http.post("/api/admin/register", user)
                     .then(res => {
                         this.$router.push('/')
                     }).catch(e => {
