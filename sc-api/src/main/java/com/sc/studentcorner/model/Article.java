@@ -16,6 +16,7 @@ public class Article {
     @Enumerated(EnumType.STRING)
     private ArticleCategory category;
 
+    @Lob
     @Column(name = "article_text")
     private String articleText;
 
@@ -28,7 +29,7 @@ public class Article {
     public Article() {
     }
 
-    public Article(String title, ArticleCategory category, String articleText, String thumbnail, LocalDateTime dateCreated) {
+    public Article(String title, ArticleCategory category,  String articleText, String thumbnail, LocalDateTime dateCreated) {
         this.title = title;
         this.category = category;
         this.articleText = articleText;

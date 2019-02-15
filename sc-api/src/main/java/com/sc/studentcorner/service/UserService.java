@@ -27,13 +27,13 @@ public class UserService  implements UserDetailsService {
     }
 
     @Transactional
-    public User saveUser(String email, String password) {
+    public User saveUser(String email, String password, String name, String surname, String faculty) {
         boolean userExists = repository.existsByEmail(email);
         if (userExists) {
             logger.warn("User [{}] already exists", email);
             throw new EntityExistsException(email);
         } else {
-            User newUser = new User(email);
+            User newUser = new User(name,surname,email,faculty);
             newUser.setPassword(passwordEncoder.encode(password));
             return repository.save(newUser);
         }

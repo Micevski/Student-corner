@@ -1,17 +1,14 @@
 <template>
-    <v-footer dark height="auto">
+    <v-footer dark height="auto" class="footer">
         <v-card class="flex" flat tile>
             <v-card-title class="teal">
-                <strong class="subheading">Најдете не на социјалните мрежи!</strong>
+                <strong class="subheading">Студентски агол - Вашето омилено катче</strong>
                 <v-spacer></v-spacer>
-                <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon>
-                    <font-awesome-icon :icon="icon" />
 
-                </v-btn>
             </v-card-title>
 
             <v-card-actions class="grey darken-3 justify-center">
-                &copy;2018 — <strong>Студентски агол</strong>
+                &copy;2019 — <strong>Студентски агол</strong>
             </v-card-actions>
         </v-card>
     </v-footer>
@@ -19,18 +16,17 @@
 <script>
     export default {
         data: () => ({
-            icons: [
-                'coffee',
-                'fa-facebook',
-                'fab fa-twitter',
-                'fab fa-google-plus',
-                'fab fa-linkedin',
-                'fab fa-instagram'
-            ]
+
         })
     }
 </script>
 
 <style>
+    .footer{
+        position:absolute;
+        bottom:0px;
+        left:0px;
+        right:0px;
 
+    }
 </style>

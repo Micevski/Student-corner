@@ -18,9 +18,10 @@ public class ArticleController {
         this.service = service;
     }
 
-    @PostMapping
-    public Article saveArticle(@RequestBody Article article){
-        return service.saveArticle(article);
+
+    @GetMapping
+    public List<Article> getAllArticles(){
+        return service.getAllArticles();
     }
 
     @GetMapping("/{id}")
@@ -30,7 +31,7 @@ public class ArticleController {
 
 
     @GetMapping("/all/{category}")
-    public List<Article> getAllArticlesFromCategory(@PathVariable ArticleCategory category) {
+    public List<Article> getAllArticlesFromCategory(@PathVariable String category) {
         return service.getArticlesFromCategory(category);
     }
 
